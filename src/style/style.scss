@@ -1,0 +1,12 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: $red;
+    color: $text;
+}
+
+.image{
+    width: 40rem;
+    height: 30rem;
+    background-size: cover;
+    background-image: url('images/1.jpg');
+}
