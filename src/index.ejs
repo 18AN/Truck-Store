@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="container">
+            <header class="header">
+                    <div class="header__logo">
+                        <div class="logo">Header / Logo</div>
+                    </div>
+                    <div class="header__nav">
+                        <% nav.forEach(function(link) { %>
+                            <a class="nav__link" href="#"><%= link.text.toUpperCase() %></a>
+                        <% }); %>
+                    </div>
+                    <div class="header__breadcrumbs">
+                        <%  breadcrumbs.forEach(function(link,index) { %>
+                            <% if(index!==2) {%>
+                                <a class="breadcrumbs__link" href="#"><%= link.text %></a>>
+                            <% }else {%>
+                                <a class="breadcrumbs__link_visited" href="#"><%= link.text %></a>
+                            <% } %>  
+                        <% }); %>
+                    </div>
+            </header>
+            <main>
+                <div class="sorting">
+                 <div class="sorting__filter">
+                    <form class="sorting__form" action="">
+                        <h4>26 Results Found</h4>
+                        <hr>
+                        <div class="sorting__checkbox">
+                            <div class="sorting__heading">
+                                <p>Param 1</p>
+                                <img src="/images/Arrow.svg" alt="open/close">
+                            </div>
+                            <div><input class="checkbox" type="checkbox" id="1"><label for="1">value 1</label></div>
+                            <div><input class="checkbox" type="checkbox" id="2"><label for="2">value 2</label></div>
+                            <div><input class="checkbox" type="checkbox" id="3"><label for="3">value 3</label></div>
+                            <div><input class="checkbox" type="checkbox" id="4"><label for="4">value 4</label></div>
+                        </div>   
+                        <div class="sorting__radio">
+                            <div class="sorting__heading">
+                                <p>Param 2</p>
+                                <img src="/images/Arrow.svg" alt="open/close">
+                            </div>
+                            <div><input class="checkbox" type="radio" id="1"><label for="1">value 1</label></div>
+                            <div><input class="checkbox" type="radio" id="2"><label for="2">value 2</label></div>
+                            <div><input class="checkbox" type="radio" id="3"><label for="3">value 3</label></div>
+                        </div>
+                        <div class="sorting__inputs">
+                            <div class="sorting__heading">
+                                <p>Param 3</p>
+                                <img src="/images/Arrow.svg" alt="open/close">
+                            </div>
+                            <div>
+                                <input class="min-max" placeholder="min" name="min" type="text">
+                                <input class="min-max" placeholder="min" name="min" type="text">
+                            </div>
+                        </div> 
+                        <div class="sorting__keyword">
+                            <div class="sorting__heading">
+                                <p>Param 4</p>
+                                <img src="/images/Arrow.svg" alt="open/close">
+                            </div>
+                            <input class="keyword" placeholder="Keyword" name="keyword" type="text">
+                        </div>    
+                        <button class="search" type="submit">SEARCH</button>  
+                    </form>
+                 </div>
+                </div>
+                <div class="results">
+                    <h1><%= page_meta.h1 %></h1>
+                    <div class="results__nav">
+                        <div class="results__buttons">
+                            <button class="prev">prev</button>
+                            <button class="page">1</button>
+                            <button class="page">2</button>
+                            <button class="next">next</button>
+                        </div>
+                        <div class="results__sort">
+                            <p>Sort by</p>
+                            <select name="sort" id="sort1"></select>
+                        </div>
+                    </div>
+                        <% stock.forEach(function(item,index) { %>
+                            <div class="results__item">
+                                <div class="results__info">
+                                    <img src="images/1.jpg" alt="">
+                                    <div class="results__descriprion">
+                                        <div class="results__header">
+                                            <div class="title"><%= item.title %></div>
+                                            <div class="price"><%= item.price %></div>
+                                        </div>
+                                        <div class="description"></div>
+                                        <div class="general">
+                                            <div class="year"><%= item.year %></div>
+                                            <div class="mileage"><%= item.mileage %></div>
+                                            <div class="axle_configuration"><%= item.axle_configuration %></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>    
+                        <% }); %>
+                    </div>    
+                </div>        
+            </main>
+            <footer class="footer"></footer>
+        </div>
+    </body>
+</html>
